@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Template
+		</title>
+
+		<script>
+			
+
+			// kilka rzeczy musze zrozumiec
+			// przede wszystkim jesli przekazuje funkcje musze pamietac o nawiasach ()
+			// w przeciwnym razie nie zostanie to wywolana funkcja a tylko przekaza jak zmienna
+			// swego rodzaju funktor
+			//
+			// niestety w js trzeba pamietac o srednikach
+			//
+			// jesli chodzi i getElements... zwraca on tablice, ktora iterujemy od zera
+			// i tak jak w pozostalych klasycznych jezykach - element tablicy pobiera sie poprzez iterowanie z brakcetami []
+			function check_input() {
+
+				// pobieranie info z [0] elementu input jest tutaj ok,
+				// ale na dluzsza mete dla dluzszych apek jest to juz sredni pomysl
+				document.getElementById("txt").innerHTML = document.getElementsByTagName("input")[0].value;
+			}
+
+			function check_input_rozbudowane_o_warunek() {
+				var input_element = document.getElementsByTagName('input')[0];
+
+				if(input_element.value.length == 0) {
+					alert('wow! you provided nothing!');
+					document.getElementById('txt').innerHTML = "you provided nothing";	
+				} else {
+					document.getElementById('txt').innerHTML = input_element.value;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<input><br>
+		<button onclick="check_input()"> Check! </button>
+
+		<button onclick="check_input_rozbudowane_o_warunek()"> Check Better! </button>
+
+		<p id="txt"></p>
+
+		
+	</body>
+</html>
